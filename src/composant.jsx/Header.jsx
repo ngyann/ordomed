@@ -1,42 +1,26 @@
-import React from "react";
+import React from 'react';
 
-const Header = () => (
-  <header className="header">
-    <div className="header-left">
-      {/* Simuler le menu mobile : à brancher sur un context ou state */}
-      <button className="mobile-menu-toggle" type="button">
-        ☰
-      </button>
-      <h1 className="header-title">Tableau de bord</h1>
-    </div>
-    <div className="header-right">
-      <div className="header-search">
-        <input type="text" placeholder="Rechercher un patient..." />
-        <span className="header-search-icon" aria-hidden="true">🔍</span>
+const Header = () => {
+  return (
+    <header className="header">
+      <div className="header-left">
+        <h1 className="page-title">Tableau de bord</h1>
       </div>
-      <div
-        className="header-notifications"
-        tabIndex={0}
-        role="button"
-        aria-label="Voir les notifications"
-        onClick={() => (window.location.href = "notifications.html")}
-      >
-        <span style={{ fontSize: "20px" }}>🔔</span>
-        <span className="notification-badge">3</span>
-      </div>
-      <div className="user-menu">
-        <div
-          className="user-avatar"
-          tabIndex={0}
-          role="button"
-          aria-label="Profil utilisateur"
-          onClick={() => (window.location.href = "settings.html")}
-        >
-          DM
+      <div className="header-right">
+        <div className="search-bar">
+          <input type="text" placeholder="Rechercher..." className="search-input" />
+          <button className="search-button">🔍</button>
+        </div>
+        <div className="user-menu">
+          <div className="user-avatar">👨‍⚕️</div>
+          <div className="user-info">
+            <div className="user-name">Dr. Martin</div>
+            <div className="user-role">Médecin</div>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 export default Header;

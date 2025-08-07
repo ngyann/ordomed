@@ -1,69 +1,54 @@
-import React from "react";
-import styles from "./Sidebar.module.css"; // Si tu veux surcharger, sinon laisse le CSS global
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Sidebar = () => (
-  <nav className="sidebar">
-    <div className="sidebar-header">
-      <h2 className="logo">
-        <div className="logo-icon" aria-hidden="true">🏥</div>
-        <span className="logo-text">OrdoMed</span>
-      </h2>
+const Sidebar = () => {
+  return (
+    <div className="sidebar">
+      <div className="sidebar-header">
+        <h2>Ordomed</h2>
+      </div>
+      <nav className="sidebar-nav">
+        <ul>
+          <li>
+            <Link to="/" className="nav-link">
+              <span className="nav-icon">🏠</span>
+              <span className="nav-text">Accueil</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashboard" className="nav-link">
+              <span className="nav-icon">📊</span>
+              <span className="nav-text">Tableau de bord</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/patients" className="nav-link">
+              <span className="nav-icon">👥</span>
+              <span className="nav-text">Patients</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/prescriptions" className="nav-link">
+              <span className="nav-icon">📝</span>
+              <span className="nav-text">Prescriptions</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/medicaments" className="nav-link">
+              <span className="nav-icon">💊</span>
+              <span className="nav-text">Médicaments</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/settings" className="nav-link">
+              <span className="nav-icon">⚙️</span>
+              <span className="nav-text">Paramètres</span>
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <div className="sidebar-nav">
-      {/* Principal */}
-      <div className="nav-section">
-        <div className="nav-section-title">Principal</div>
-        <a href="dashboard.html" className="nav-item active">
-          <span className="nav-item-icon" aria-hidden="true">📊</span>
-          <span className="nav-item-text">Tableau de bord</span>
-        </a>
-        <a href="patients.html" className="nav-item">
-          <span className="nav-item-icon">👥</span>
-          <span className="nav-item-text">Patients</span>
-        </a>
-        <a href="prescriptions.html" className="nav-item">
-          <span className="nav-item-icon">📝</span>
-          <span className="nav-item-text">Prescriptions</span>
-        </a>
-      </div>
-      {/* Outils IA */}
-      <div className="nav-section">
-        <div className="nav-section-title">Outils IA</div>
-        <a href="recommendations.html" className="nav-item">
-          <span className="nav-item-icon">🤖</span>
-          <span className="nav-item-text">Recommandations</span>
-        </a>
-        <a href="interactions.html" className="nav-item">
-          <span className="nav-item-icon">⚠️</span>
-          <span className="nav-item-text">Interactions</span>
-        </a>
-      </div>
-      {/* Historique */}
-      <div className="nav-section">
-        <div className="nav-section-title">Historique</div>
-        <a href="history.html" className="nav-item">
-          <span className="nav-item-icon">📚</span>
-          <span className="nav-item-text">Historique médical</span>
-        </a>
-        <a href="notifications.html" className="nav-item">
-          <span className="nav-item-icon">🔔</span>
-          <span className="nav-item-text">Notifications</span>
-        </a>
-      </div>
-      {/* Paramètres */}
-      <div className="nav-section">
-        <div className="nav-section-title">Paramètres</div>
-        <a href="settings.html" className="nav-item">
-          <span className="nav-item-icon">⚙️</span>
-          <span className="nav-item-text">Paramètres</span>
-        </a>
-        <a href="admin.html" className="nav-item">
-          <span className="nav-item-icon">🛡️</span>
-          <span className="nav-item-text">Administration</span>
-        </a>
-      </div>
-    </div>
-  </nav>
-);
+  );
+};
 
 export default Sidebar;

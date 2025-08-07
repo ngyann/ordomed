@@ -1,42 +1,49 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const actions = [
   {
-    href: "prescriptions.html",
-    icon: "📝",
-    title: "Nouvelle prescription",
-    desc: "Créer une ordonnance avec assistance IA",
+    title: 'Nouveau patient',
+    icon: '👤',
+    color: 'var(--primary-color)',
+    path: '/patients/new'
   },
   {
-    href: "patients.html",
-    icon: "👤",
-    title: "Ajouter un patient",
-    desc: "Enregistrer un nouveau patient",
+    title: 'Nouvelle prescription',
+    icon: '📝',
+    color: 'var(--success-color)',
+    path: '/prescriptions/new'
   },
   {
-    href: "recommendations.html",
-    icon: "🎯",
-    title: "Recommandations IA",
-    desc: "Consulter les suggestions personnalisées",
+    title: 'Vérifier interactions',
+    icon: '⚠️',
+    color: 'var(--warning-color)',
+    path: '/interactions'
   },
   {
-    href: "history.html",
-    icon: "📊",
-    title: "Analyses & Rapports",
-    desc: "Visualiser les statistiques détaillées",
-  },
+    title: 'Consulter historique',
+    icon: '📊',
+    color: 'var(--info-color)',
+    path: '/history'
+  }
 ];
 
-const QuickActions = () => (
-  <div className="quick-actions">
-    {actions.map((action) => (
-      <a href={action.href} className="quick-action" key={action.title}>
-        <div className="quick-action-icon" aria-hidden="true">{action.icon}</div>
-        <div className="quick-action-title">{action.title}</div>
-        <div className="quick-action-description">{action.desc}</div>
-      </a>
-    ))}
-  </div>
-);
+const QuickActions = () => {
+  return (
+    <div className="quick-actions">
+      <h3 className="section-title">Actions rapides</h3>
+      <div className="actions-grid">
+        {actions.map((action, index) => (
+          <Link to={action.path} className="action-card" key={index}>
+            <div className="action-icon" style={{ backgroundColor: `${action.color}20`, color: action.color }}>
+              {action.icon}
+            </div>
+            <div className="action-title">{action.title}</div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default QuickActions;
